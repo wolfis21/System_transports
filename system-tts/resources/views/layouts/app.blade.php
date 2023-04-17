@@ -13,90 +13,64 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+          <nav class="navbar navbar-expand-lg navbar-light bg-white">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#">Navbar</a>
+              <a class="navbar-brand" href="/">
+                <img src="logo.png" alt="logo" class="logo">
+                Transportes Terrestres
+              </a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
-              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                 <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
-                  </li>
                   <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Dropdown link
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Opciones
                     </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <li><a class="dropdown-item" href="/buses">Autobuses</a></li>
+                      <li><a class="dropdown-item" href="/pisteros">Pisteros</a></li>
                     </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Login</a>
                   </li>
                 </ul>
               </div>
             </div>
           </nav>
-        <main class="py-4">
+        <main class="">
             @yield('content')
         </main>
-        <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
-          <div class="col mb-3">
-              <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
-                  <svg class="bi me-2" width="40" height="32">
-                      <use xlink:href="#bootstrap"></use>
-                  </svg>
-              </a>
-              <p class="text-muted">© 2022</p>
+
+      <footer class="bg-white">
+        <div class="container text-center">
+          <div class="row">
+            <div class="col-6">
+              <h2>Contactanos</h2>
+            </div>
+            <div class="col">
+              <h4 class="fs-4 fw-semibold">Telefonos</h4><br>
+              <p>04121234567</p>
+              <p>02861234567</p>
+            </div>
+            <div class="col">
+              <h4 class="fs-4 fw-semibold">Correo Electronico</h4> <br>
+              <p>correo@correo.com</p>
+            </div>
+           
           </div>
-      
-          <div class="col mb-3 d-none d-sm-block"></div>
-      
-          <div class="col mb-3">
-              <h5>Section</h5>
-              <ul class="nav flex-column">
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-              </ul>
-          </div>
-      
-          <div class="col mb-3">
-              <h5>Section</h5>
-              <ul class="nav flex-column">
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-              </ul>
-          </div>
-      
-          <div class="col mb-3">
-              <h5>Section</h5>
-              <ul class="nav flex-column">
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-              </ul>
-          </div>
-      </footer>
+        </div>
+          <hr class="container mt-5">
+          <p class="container text-center">&copy; 2023 Todos los derechos son reservados</p>
+        </footer>
     </div>
 </body>
 </html>
