@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Center_cp;
 
 class Camino_cp extends Model
 {
@@ -22,7 +23,7 @@ class Camino_cp extends Model
         return $this->hasOne(Users_op::class);
     }
 
-    public function center_cp(){
-        return $this->belongsToMany(Center_cp::class);
+    public function center(){
+        return $this->belongsToMany(Center_cp::class, 'camino_centers', 'camino_cps_id', 'center_cps_id');
     }
 }

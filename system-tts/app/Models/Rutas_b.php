@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Paradas_b;
 
 class Rutas_b extends Model
 {
@@ -20,7 +21,7 @@ class Rutas_b extends Model
     public function users_op(){
         return $this->hasOne(Users_op::class);
     }
-    public function paradas_b(){
-        return $this->belongsToMany(Paradas_b::class);
+    public function paradas(){
+        return $this->belongsToMany(Paradas_b::class, 'rutas_paradas', 'rutas_b_id', 'paradas_b_id');
     }
 }

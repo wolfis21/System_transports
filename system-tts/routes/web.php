@@ -25,8 +25,10 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'indexHome']);
 Route::get('/buses', [App\Http\Controllers\HomeController::class, 'viewBuses']);
 Route::get('/pisteros', [App\Http\Controllers\HomeController::class, 'viewPisteros']);
 /* Route::get('/viewsMapsBuses', [App\Http\Controllers\HomeController::class, 'viewsMapsBuses']); */
-Route::get('/viewsMapsPisteros', [App\Http\Controllers\HomeController::class, 'viewsMapsPisteros']);
+Route::get('/viewsMapsPisteros/{id}', [App\Http\Controllers\HomeController::class, 'viewsMapsPisteros']);
 Route::get('/viewsMapsBuses/{id}', [App\Http\Controllers\HomeController::class, 'viewsMapsBuses']);
+Route::get('/viewOneParada/{id}', [App\Http\Controllers\HomeController::class, 'viewOneParada']);
+Route::get('/viewOneCenter/{id}', [App\Http\Controllers\HomeController::class, 'viewOneCenter']);
 
 /* Crear data fake */
 

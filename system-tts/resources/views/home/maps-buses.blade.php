@@ -20,40 +20,16 @@
                         {{-- esto aca esta iterandose no asi --}}
 
         <div class="row ">
+            @foreach ($ruta->paradas as $paradas)
             <div class="zoom-contenedor col-12 col-md-6 col-xl-2 m-5 p-4 card borde-carta">
                 <img src="{{ asset('img/img1.png') }}" class="card-img-top borde-imagen-carta" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Ruta N</h5>
-                    <p class="card-text">Name</p>
-                    <a href="#" class="btn btn-primary borde-botones boton-ver">Ver mas</a>
+                    <span class="card-text">Parada</span>
+                    <h5 class="card-title">{{ $paradas->name_ref }}</h5>
+                    <a href="/viewOneParada/{{$paradas->id}}" class="btn btn-primary borde-botones boton-ver">Ver mas</a>
                 </div>
             </div>
-
-            <div class="zoom-contenedor col-12 col-md-6 col-xl-2 m-5 p-4 card borde-carta">
-                <img src="{{ asset('img/img1.png') }}" class="card-img-top borde-imagen-carta" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Ruta N</h5>
-                    <p class="card-text">Name</p>
-                    <a href="#" class="btn btn-primary borde-botones boton-ver">Ver mas</a>
-                </div>
-            </div>
-
-            <div class="zoom-contenedor col-12 col-md-6 col-xl-2 m-5 p-4 card borde-carta">
-                <img src="{{ asset('img/img1.png') }}" class="card-img-top borde-imagen-carta" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Ruta N</h5>
-                    <p class="card-text">Name</p>
-                    <a href="#" class="btn btn-primary borde-botones boton-ver">Ver mas</a>
-                </div>
-            </div>
-            <div class="zoom-contenedor col-12 col-md-6 col-xl-2 m-5 p-4 card borde-carta">
-                <img src="{{ asset('img/img1.png') }}" class="card-img-top borde-imagen-carta" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Ruta N</h5>
-                    <p class="card-text">Name</p>
-                    <a href="#" class="btn btn-primary borde-botones boton-ver">Ver mas</a>
-                </div>
-            </div>
+            @endforeach
         </div>
       </div>
 </div>

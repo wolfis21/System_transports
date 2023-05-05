@@ -30,7 +30,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Camino {{$camino->id}}</h5>
                             <p class="card-text">{{$camino->name}}</p>
-                            <a href="#" class="btn btn-primary borde-botones boton-ver">Ver mas</a>
+                            <a href="/viewsMapsPisteros/{{$camino->id}}" class="btn btn-primary borde-botones boton-ver">Ver mas</a>
                         </div>
                     </div>
                     @endforeach

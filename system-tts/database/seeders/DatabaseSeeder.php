@@ -18,6 +18,13 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             Type_serviceTableSeeder::class,
+            Users_opTableSeeder::class,
+            Paradas_bsSeeder::class,
+            Rutas_bsSeeder::class,
+            Center_cpsSeeder::class,
+            Camino_cpsSeeder::class,
+            Rutas_Paradas_Seeder::class,
+            Camino_Center_Seeder::class
         ]);
     }
 }

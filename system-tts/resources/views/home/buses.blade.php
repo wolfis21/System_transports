@@ -31,7 +31,8 @@
                             <h5 class="card-title">Ruta {{$ruta->id}}</h5>
                             <p class="card-text">{{$ruta->name}}</p>
                             {{-- se daño este boton de id, sirve la funcionalidad pero boton no --}}
-{{--                             <a href="{{ route('ruta.viewsMapsBuses', ['id' => $ruta->id]) }}" class="btn btn-primary borde-botones boton-ver">Ver más</a> --}}
+                
+                            <a href="viewsMapsBuses/{{$ruta->id}}" class="btn btn-primary borde-botones boton-ver">Ver más</a>
                         </div>
                     </div>
                     @endforeach

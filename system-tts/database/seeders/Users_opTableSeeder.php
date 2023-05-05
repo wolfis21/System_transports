@@ -111,6 +111,33 @@ class Users_opTableSeeder extends Seeder
                 "email" :"MariaPeeere@gmail.com",
                 "password" :"$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi",
                 "type_service_id": 2        
+            },
+            {
+
+                "dni": "11152234",
+                "name" : "Mario sderez",
+                "nacimiento" : "02/03/1980",
+                "email" :"MariosPeeere@gmail.com",
+                "password" :"$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi",
+                "type_service_id": 2        
+            },
+            {
+
+                "dni": "848292",
+                "name" : "Sofia sderez",
+                "nacimiento" : "02/03/1980",
+                "email" :"Sofiare@gmail.com",
+                "password" :"$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi",
+                "type_service_id": 2        
+            },
+            {
+
+                "dni": "8847291",
+                "name" : "Rodiecn assd",
+                "nacimiento" : "02/03/1980",
+                "email" :"sdRodieeere@gmail.com",
+                "password" :"$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi",
+                "type_service_id": 2        
             }
         ]
     }

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Camino_cp;
+use App\Models\Paradas_b;
 use App\Models\Rutas_b;
+use App\Models\Center_cp;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -47,11 +49,20 @@ class HomeController extends Controller
         return view('home/pisteros',['camino_cp' =>$camino] );
     }
     public function viewsMapsBuses($id){
-        $ruta = Rutas_b::findOrFail($id);
+        $ruta = Rutas_b::with('paradas')->findOrFail($id);
         return view('home/maps-buses', compact('ruta'));
     }
-    public function viewsMapsPisteros(){
-        return view('home/maps-pisteros');
+    public function viewsMapsPisteros($id){
+        $camino = Camino_cp::with('center')->findOrFail($id);
+        return view('home/maps-pisteros', compact('camino'));
+    }
+    public function viewOneParada($id){
+        $paradaOne = Paradas_b::findOrFail($id);
+        return view('home/one-parada', compact('paradaOne'));
+    }
+    public function viewOneCenter($id){
+        $centerOne = Center_cp::findOrFail($id);
+        return view('home/one-center', compact('centerOne'));
     }
 
 }
