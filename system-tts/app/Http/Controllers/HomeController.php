@@ -8,6 +8,11 @@ use App\Models\Rutas_b;
 use App\Models\Center_cp;
 use Illuminate\Http\Request;
 
+/* 
+     DESACTIVADO
+
+*/
+
 class HomeController extends Controller
 {
     /**
