@@ -48,33 +48,22 @@ class Camino_cpController extends Controller
 
     public function edit($id)
     {   //pensar esto un poco
-        /* $camino = caminos_b::find($id);
-        $camino_parada = Paradas_b::find($camino->zona_id);
-        $zonas = Zona::all();
-
-        return view('empleado.edit', compact('empleado'))->with([
-            'zonas' => $zonas,
-            'zona_empleado' =>$zona_empleado,
-        ]);; */
+        $camino = Camino_cp::find($id);
+        return view('camino.edit', compact('camino'));
     }
 
-    public function update(/* Request $request, Empleado $empleado */)
+    public function update(Request $request, Camino_cp $camino)
     {
-/*         $request->validate([
-            'cedula' => 'required|integer',
-            'pname' =>'required|string',
-            'psubname' =>'required|string',
-            'fecha_n' =>'required|date',
-            'direccion' =>'required|string',
-            'telefono' =>'required|integer|min:8',
-            'cargo' =>'required|string',
-            'zona_id' => 'required',
+        $request->validate([
+            'name' => 'required|string',
+            'cost' =>'required|integer',
+            'users_ops_id' => 'required',
         ]);
 
-        $empleado->update($request->all());
+        $camino->update($request->all());
 
-        return redirect()->route('empleado.index')
-            ->with('success', 'empleado updated successfully'); */
+        return redirect()->route('camino.index')
+            ->with('success', 'camino updated successfully');
     }
 
     public function destroy($id)

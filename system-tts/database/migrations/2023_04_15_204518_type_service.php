@@ -15,7 +15,7 @@ return new class extends Migration
     {
         //
         Schema::disableForeignKeyConstraints();
-        Schema::create('type_service', function (Blueprint $table) {
+        Schema::create('type_services', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('rol_service');
             $table->rememberToken();
@@ -31,6 +31,6 @@ return new class extends Migration
     public function down()
     {
         //
-        Schema::dropIfExists('type_service');
+        Schema::dropIfExists('type_services');
     }
 };

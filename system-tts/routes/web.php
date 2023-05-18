@@ -52,23 +52,34 @@ Route::get('/relacionsRPFactories', [FactoriesFakesController::class, 'rutaParad
 
 /* ADMIN */
 /* gestion de rutas */
-Route::resource('ruta', Rutas_bController::class);
+// Route::resource('ruta', Rutas_bController::class);
 
-/* gestion de paradas */
-Route::resource('parada',ParadasController::class);
+// /* gestion de paradas */
+// Route::resource('parada',ParadasController::class);
 
-/* gestion de caminos */
-Route::resource('camino',Camino_cpController::class);
+// /* gestion de caminos */
+// Route::resource('camino',Camino_cpController::class);
 
-/* gestion de center */
-Route::resource('center',CentersController::class);
+// /* gestion de center */
+// Route::resource('center',CentersController::class);
 
-/* gestion de usuarios */
-Route::resource('users',Users_opController::class);
+// /* gestion de usuarios */
+// Route::resource('users',Users_opController::class);
 
 
+// /* INICIOS DE SESIONES */
+// Auth::routes();
+// Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+/* ADMIN */ /* Evaluar su correcta funcionalidad */
+Route::middleware(['auth'])->group(function () {
+    Route::resource('ruta', Rutas_bController::class);
+    Route::resource('parada',ParadasController::class);
+    Route::resource('camino',Camino_cpController::class);
+    Route::resource('center',CentersController::class);
+    Route::resource('users',Users_opController::class);
+    Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+});
 /* INICIOS DE SESIONES */
 Auth::routes();
-Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 

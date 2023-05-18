@@ -46,33 +46,22 @@ class CentersController extends Controller
 
     public function edit($id)
     {   //pensar esto un poco
-        /* $ruta = Center_cp::find($id);
-        $ruta_center = Center_cp::find($ruta->zona_id);
-        $zonas = Zona::all();
-
-        return view('empleado.edit', compact('empleado'))->with([
-            'zonas' => $zonas,
-            'zona_empleado' =>$zona_empleado,
-        ]);; */
+        $center = Center_cp::find($id);
+        return view('center.edit', compact('center'));
     }
 
-    public function update(/* Request $request, Empleado $empleado */)
+    public function update(Request $request, Center_cp $center)
     {
-/*         $request->validate([
-            'cedula' => 'required|integer',
-            'pname' =>'required|string',
-            'psubname' =>'required|string',
-            'fecha_n' =>'required|date',
-            'direccion' =>'required|string',
-            'telefono' =>'required|integer|min:8',
-            'cargo' =>'required|string',
-            'zona_id' => 'required',
+        $request->validate([
+            'name_ref' => 'required|string',
+            'coordenada' =>'required|string',
+            'img_ref' =>'required|string',
         ]);
 
-        $empleado->update($request->all());
+        $center->update($request->all());
 
-        return redirect()->route('empleado.index')
-            ->with('success', 'empleado updated successfully'); */
+        return redirect()->route('center.index')
+            ->with('success', 'center updated successfully');
     }
 
     public function destroy($id)

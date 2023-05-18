@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Paradas_b;
 use App\Models\Rutas_b;
+use App\Models\RutasParadas;
 use Illuminate\Http\Request;
 
 class Rutas_bController extends Controller
@@ -48,33 +49,22 @@ class Rutas_bController extends Controller
 
     public function edit($id)
     {   //pensar esto un poco
-        /* $ruta = Rutas_b::find($id);
-        $ruta_parada = Paradas_b::find($ruta->zona_id);
-        $zonas = Zona::all();
-
-        return view('empleado.edit', compact('empleado'))->with([
-            'zonas' => $zonas,
-            'zona_empleado' =>$zona_empleado,
-        ]);; */
+        $ruta = Rutas_b::find($id);
+        return view('ruta.edit', compact('ruta'));
     }
 
-    public function update(/* Request $request, Empleado $empleado */)
+    public function update(Request $request, Rutas_b $ruta)
     {
-/*         $request->validate([
-            'cedula' => 'required|integer',
-            'pname' =>'required|string',
-            'psubname' =>'required|string',
-            'fecha_n' =>'required|date',
-            'direccion' =>'required|string',
-            'telefono' =>'required|integer|min:8',
-            'cargo' =>'required|string',
-            'zona_id' => 'required',
+        $request->validate([
+            'name' => 'required|string',
+            'cost' =>'required|integer',
+            'users_ops_id' => 'required', /* no update */
         ]);
 
-        $empleado->update($request->all());
+        $ruta->update($request->all());
 
-        return redirect()->route('empleado.index')
-            ->with('success', 'empleado updated successfully'); */
+        return redirect()->route('ruta.index')
+            ->with('success', 'ruta updated successfully');
     }
 
     public function destroy($id)

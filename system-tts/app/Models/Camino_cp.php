@@ -17,8 +17,6 @@ class Camino_cp extends Model
 
     protected $fillable = ['name', 'cost','users_op_id'];
 
-    // agregar las relaciones n-m m-1 1-1
-
     public function users_op(){
         return $this->hasOne(Users_op::class);
     }

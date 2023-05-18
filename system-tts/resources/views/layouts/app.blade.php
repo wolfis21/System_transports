@@ -40,15 +40,37 @@
                     </ul>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Login</a>
-                  </li>
+                    <input class="nav-link" type="submit" data-toggle="modal" data-target="#loginModal" value="login"> {{-- hay que implementar un modal al darle click --}}
+                </li> {{-- esto es para que exitan 2 logins 1 para el administrador y otro para el user comun --}}
                 </ul>
               </div>
             </div>
           </nav>
+
         <main class="">
             @yield('content')
         </main>
+
+        <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="loginModalLabel">Iniciar sesión</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                  </div>
+                  <div class="modal-body">
+                      <!-- Aquí puedes agregar los elementos del formulario de inicio de sesión -->
+                      <h1>Hola</h1>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                      <button type="button" class="btn btn-primary">Iniciar sesión</button>
+                  </div>
+              </div>
+          </div>
+      </div>
 
       <footer class="bg-white">
         <div class="container text-center">
@@ -72,5 +94,7 @@
           <p class="container text-center">&copy; 2023 Todos los derechos son reservados</p>
         </footer>
     </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="{{ asset('js/bootstrap.js') }}"></script>
 </body>
 </html>

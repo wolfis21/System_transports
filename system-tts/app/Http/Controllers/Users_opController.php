@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Type_service;
 use App\Models\Users_op;
 use Illuminate\Http\Request;
 
@@ -25,9 +26,12 @@ class Users_opController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name_ref' => 'required|string',
-            'coordenada' =>'required|string',
-            'img_ref' => 'required',
+            'dni' => 'required|string',
+            'name' =>'required|string',
+            'nacimiento' => 'required|date',
+            'email' => 'required|string',
+            'password' => 'required|string',
+            'type_service_id' => 'required',
         ]);
 
         $users = Users_op::create($request->all());
@@ -45,33 +49,32 @@ class Users_opController extends Controller
 
     public function edit($id)
     {   //pensar esto un poco
-        /* $ruta = Users_op::find($id);
-        $ruta_users = Users_op::find($ruta->zona_id);
-        $zonas = Zona::all();
+        $users = Users_op::find($id);
+        $type = Type_service::all();
 
-        return view('empleado.edit', compact('empleado'))->with([
-            'zonas' => $zonas,
-            'zona_empleado' =>$zona_empleado,
-        ]);; */
+        return view('users.edit', compact('users'))->with([
+            'type_service' => $type,
+        ]);
     }
 
-    public function update(/* Request $request, Empleado $empleado */)
+    public function update( Request $request, Users_op $users )
     {
-/*         $request->validate([
-            'cedula' => 'required|integer',
-            'pname' =>'required|string',
-            'psubname' =>'required|string',
-            'fecha_n' =>'required|date',
-            'direccion' =>'required|string',
-            'telefono' =>'required|integer|min:8',
-            'cargo' =>'required|string',
-            'zona_id' => 'required',
+        $request->validate([
+            'dni' => 'required|string',
+            'name' =>'required|string',
+            'nacimiento' => 'required|date',
+            'email' => 'required|string',
+            'password' => 'required|string',
+            'type_service_id' => 'required',
         ]);
 
-        $empleado->update($request->all());
-
-        return redirect()->route('empleado.index')
-            ->with('success', 'empleado updated successfully'); */
+        $input = $request->all();
+        $input['password'] = bcrypt($request->password); // encriptar la contraseña antes de guardarla
+    
+        $users->update($input);
+    
+        return redirect()->route('users.index')
+            ->with('success', 'users updated successfully');
     }
 
     public function destroy($id)

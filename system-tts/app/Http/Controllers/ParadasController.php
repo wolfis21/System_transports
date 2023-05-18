@@ -47,33 +47,22 @@ class ParadasController extends Controller
 
     public function edit($id)
     {   //pensar esto un poco
-        /* $ruta = paradas_b::find($id);
-        $ruta_parada = Paradas_b::find($ruta->zona_id);
-        $zonas = Zona::all();
-
-        return view('empleado.edit', compact('empleado'))->with([
-            'zonas' => $zonas,
-            'zona_empleado' =>$zona_empleado,
-        ]);; */
+        $parada = paradas_b::find($id);
+        return view('parada.edit', compact('parada'));
     }
 
-    public function update(/* Request $request, Empleado $empleado */)
+    public function update(Request $request, Paradas_b $parada)
     {
-/*         $request->validate([
-            'cedula' => 'required|integer',
-            'pname' =>'required|string',
-            'psubname' =>'required|string',
-            'fecha_n' =>'required|date',
-            'direccion' =>'required|string',
-            'telefono' =>'required|integer|min:8',
-            'cargo' =>'required|string',
-            'zona_id' => 'required',
+        $request->validate([
+            'name_ref' => 'required|string',
+            'coordenada' =>'required|string',
+            'img_ref' =>'required|string',
         ]);
 
-        $empleado->update($request->all());
+        $parada->update($request->all());
 
-        return redirect()->route('empleado.index')
-            ->with('success', 'empleado updated successfully'); */
+        return redirect()->route('parada.index')
+            ->with('success', 'parada updated successfully');
     }
 
     public function destroy($id)

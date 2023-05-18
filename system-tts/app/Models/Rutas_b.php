@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Paradas_b;
+use App\Models\Users_op;
 
 class Rutas_b extends Model
 {

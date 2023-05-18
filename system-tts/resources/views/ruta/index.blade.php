@@ -37,7 +37,7 @@
 											<td>{{ $ruta->id }}</td>
 											<td>{{ $ruta->name }}</td>
 											<td>{{ $ruta->cost }}</td>
-                                            <td>{{ $ruta->users_ops_id }}</td>
+                                            <td>{{ $ruta->users_ops_id }}</td> {{-- no es eficiente porque tiene problemas al traer el name --}}
                                             <td>
                                                 <form action="{{ route('ruta.destroy',$ruta->id) }}" method="POST">
                                                     {{-- <a class="btn btn-sm btn-primary " href="{{ route('ruta.show',$ruta->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a> --}}

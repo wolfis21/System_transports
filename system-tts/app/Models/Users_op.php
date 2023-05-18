@@ -24,4 +24,7 @@ class Users_op extends Model
     public function Type_service(){
         return $this->belongsTo(Type_service::class);
     }
+    public function ruta(){
+        return $this->hasMany(Rutas_b::class);
+    }
 }
