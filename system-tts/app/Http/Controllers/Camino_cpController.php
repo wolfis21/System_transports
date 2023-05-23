@@ -15,6 +15,13 @@ class Camino_cpController extends Controller
 
         return view('camino/index', ['camino_cp' =>$caminos]);
     }
+    public function indexUsers()
+    {
+        $user = auth()->guard('users_op')->user(); // Obtener el usuario users_op autenticado
+        $caminos = Camino_cp::where('users_ops_id', $user->id)->get(); // Filtrar las rutas por el users_ops_id del usuario
+
+        return view('camino.users.index', ['camino_cp' => $caminos]);
+    }
     
     public function create()
     {
@@ -51,6 +58,11 @@ class Camino_cpController extends Controller
         $camino = Camino_cp::find($id);
         return view('camino.edit', compact('camino'));
     }
+    public function editUsers($id) //users
+    {   //pensar esto un poco
+        $camino = Camino_cp::find($id);
+        return view('camino.users.edit', compact('camino'));
+    }
 
     public function update(Request $request, Camino_cp $camino)
     {
@@ -63,6 +75,19 @@ class Camino_cpController extends Controller
         $camino->update($request->all());
 
         return redirect()->route('camino.index')
+            ->with('success', 'camino updated successfully');
+    }
+    public function updateUsers(Request $request, Camino_cp $camino) //users
+    {
+        $request->validate([
+            'name' => 'required|string',
+            'cost' =>'required|integer',
+            'users_ops_id' => 'required',
+        ]);
+
+        $camino->update($request->all());
+
+        return redirect()->route('camino.users.index')
             ->with('success', 'camino updated successfully');
     }
 

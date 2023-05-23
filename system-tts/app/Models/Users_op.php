@@ -12,6 +12,8 @@ class Users_op extends Model implements Authenticatable
 {
     use \Illuminate\Auth\Authenticatable;
     use HasFactory;
+    protected $table = 'users_ops';
+    
     static $rules = [
         'dni' => 'required',
         'name' => 'required',

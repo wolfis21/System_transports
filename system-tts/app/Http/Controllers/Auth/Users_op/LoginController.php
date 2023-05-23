@@ -30,7 +30,13 @@ class LoginController extends Controller
         $credentials = $request->only('email', 'password');
 
         if ($this->guard()->attempt($credentials)) {
-            return redirect()->intended('/home');
+            $user = $this->guard()->user();
+           /*  dd($user->type_service_id); // Depuración: Verificar el valor de type_services_id */
+            if ($user->type_service_id == 1) {
+                return redirect()->intended('/dashboard-admin-bus');
+            } elseif ($user->type_service_id == 2) {
+                return redirect()->intended('/dashboard-admin-pistero');
+            }
         }
 
         return redirect()->back()->withInput()->withErrors([
@@ -55,19 +61,19 @@ class LoginController extends Controller
     {
         return array_merge($request->only($this->username(), 'password'), ['deleted_at' => null]);
     }
-    
+
     protected function guard()
     {
         return Auth::guard('users_op');
     }
-    
+
     protected function attemptLogin(Request $request)
     {
         $credentials = $this->credentials($request);
-    
+
         return $this->guard()->attempt(
-            $credentials, $request->filled('remember')
+            $credentials,
+            $request->filled('remember')
         );
     }
-    
 }

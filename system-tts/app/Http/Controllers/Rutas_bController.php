@@ -14,15 +14,22 @@ class Rutas_bController extends Controller
     {       //para administrador pensar 
         $rutas = Rutas_b::all();
 
-        return view('ruta/index', ['rutas_bs' =>$rutas]);
+        return view('ruta/index', ['rutas_bs' => $rutas]);
     }
-    
+    public function indexUsers()
+    {
+        $user = auth()->guard('users_op')->user(); // Obtener el usuario users_op autenticado
+        $rutas = Rutas_b::where('users_ops_id', $user->id)->get(); // Filtrar las rutas por el users_ops_id del usuario
+
+        return view('ruta.users.index', ['rutas_bs' => $rutas]);
+    }
+
     public function create()
     {
         $ruta = new Rutas_b();
         $parada = Paradas_b::all();
         return view('ruta.create', compact('ruta'))->with([
-            'paradas'=> $parada
+            'paradas' => $parada
         ]);
     }
 
@@ -30,7 +37,7 @@ class Rutas_bController extends Controller
     {
         $request->validate([
             'name' => 'required|string',
-            'cost' =>'required|integer',
+            'cost' => 'required|integer',
             'users_ops_id' => 'required',
         ]);
 
@@ -52,12 +59,30 @@ class Rutas_bController extends Controller
         $ruta = Rutas_b::find($id);
         return view('ruta.edit', compact('ruta'));
     }
+    public function editUsers($id)
+    {   //pensar esto un poco
+        $ruta = Rutas_b::find($id);
+        return view('ruta.edit', compact('ruta'));
+    }
 
     public function update(Request $request, Rutas_b $ruta)
     {
         $request->validate([
             'name' => 'required|string',
-            'cost' =>'required|integer',
+            'cost' => 'required|integer',
+            'users_ops_id' => 'required', /* no update */
+        ]);
+
+        $ruta->update($request->all());
+
+        return redirect()->route('ruta.index')
+            ->with('success', 'ruta updated successfully');
+    }
+    public function updateUsers(Request $request, Rutas_b $ruta)
+    {
+        $request->validate([
+            'name' => 'required|string',
+            'cost' => 'required|integer',
             'users_ops_id' => 'required', /* no update */
         ]);
 
@@ -74,5 +99,4 @@ class Rutas_bController extends Controller
         return redirect()->route('ruta.index')
             ->with('success', 'ruta deleted successfully');
     }
-
 }

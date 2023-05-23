@@ -15,6 +15,17 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
+Route::get('/dashboard', function () {
+    return view('dashboard/dashboard');
+});
+/* Route::get('/dashboard-admin-bus', function () {
+    return view('dashboard/dashboard-admin-bus');
+});
+Route::get('/dashboard-admin-pistero', function () {
+    return view('dashboard/dashboard-admin-pistero');
+});
+ */
+
 Route::get('/', [App\Http\Controllers\FrontController::class, 'indexHome']);
 Route::get('/buses', [App\Http\Controllers\FrontController::class, 'viewBuses']);
 Route::get('/pisteros', [App\Http\Controllers\FrontController::class, 'viewPisteros']);
@@ -27,10 +38,33 @@ Route::get('/viewOneCenter/{id}', [App\Http\Controllers\FrontController::class, 
 Route::get('/migrateFake', [FactoriesFakesController::class, 'migrateFake']);
 Route::get('/relacionsCCFactories', [FactoriesFakesController::class, 'caminoCenterFactories']);
 Route::get('/relacionsRPFactories', [FactoriesFakesController::class, 'rutaParadaFactories']);
+/* 
+Route::get('login-usersop', 'App\Http\Controllers\Auth\Users_op\LoginController@showLoginForm')->name('login.usersops');
+Route::post('login-usersop', 'App\Http\Controllers\Auth\Users_op\LoginController@login')->name('login.usersop.submit');
+Route::post('logout-usersop', 'App\Http\Controllers\Auth\Users_op\LoginController@logout')->name('logout.usersops'); */
+
+Route::group(['middleware' => ['auth:users_op']], function () {
+    Route::get('/dashboard-admin-bus', function () {
+        return view('dashboard/dashboard-admin-bus');
+    })->name('dashboard.admin.bus');
+
+    Route::get('/dashboard-admin-pistero', function () {
+        return view('dashboard/dashboard-admin-pistero');
+    })->name('dashboard.admin.pistero');
+    Route::resource('parada',ParadasController::class); //tiene que ser distinta
+    Route::resource('center',CentersController::class); //tiene que ser distinta
+    Route::post('logout-usersop', 'App\Http\Controllers\Auth\Users_op\LoginController@logout')->name('logout.usersops'); 
+    Route::get('ruta/users/users', [Rutas_bController::class, 'indexUsers'])->name('ruta.users.index');
+    Route::get('ruta/{id}/users/edit', [Rutas_bController::class, 'editUsers'])->name('ruta.users.edit');
+    Route::put('ruta/{id}/users/update', [Rutas_bController::class, 'updateUsers'])->name('ruta.users.update');
+    Route::get('camino/users/users', [Camino_cpController::class, 'indexUsers'])->name('camino.users.index');
+    Route::get('camino/{id}/users/edit', [Camino_cpController::class, 'editUsers'])->name('camino.users.edit');
+    Route::put('camino/{id}/users/update', [Camino_cpController::class, 'updateUsers'])->name('camino.users.update');
+    
+});
 
 Route::get('login-usersop', 'App\Http\Controllers\Auth\Users_op\LoginController@showLoginForm')->name('login.usersops');
 Route::post('login-usersop', 'App\Http\Controllers\Auth\Users_op\LoginController@login')->name('login.usersop.submit');
-Route::post('logout-usersop', 'App\Http\Controllers\Auth\Users_op\LoginController@logout')->name('logout.usersops');
 
 /* ADMIN */ /* Evaluar su correcta funcionalidad */
 Route::middleware(['auth'])->group(function () {
