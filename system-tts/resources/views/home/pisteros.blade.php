@@ -5,7 +5,7 @@
         <div class="text-center">
             <h2 class="fw-bold fs-1">Centros de Pisteros</h2>
             {{-- una mierda de imagen cambiar --}}
-            <img src="{{ asset('img/img3.png') }}" class="img-full">
+            <img src="{{ asset('img/img3.png') }}" class="img-home-pisteros">
         </div>
 
         <hr class="container mt-5">

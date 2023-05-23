@@ -74,7 +74,7 @@
 
             <hr class="w-100 mt-5">
         </div>
-        <div class="container text-center ">
+        <div class="container text-center custom-pdd-home">
 
             <div class="row margen-top-bottom-30">
                 <div class="col">

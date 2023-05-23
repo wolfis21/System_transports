@@ -205,3 +205,10 @@ transform:scale(1.10);
   }
 }
 
+.custom-pdd-home{
+  padding: 120px;
+}
+
+.img-home-bus, .img-home-pisteros{
+  width: 60%;
+}

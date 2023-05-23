@@ -39,9 +39,15 @@
                       <li><a class="dropdown-item" href="/pisteros">Pisteros</a></li>
                     </ul>
                   </li>
-                  <li class="nav-item">
-                    <input class="nav-link" type="submit" data-toggle="modal" data-target="#loginModal" value="login"> {{-- hay que implementar un modal al darle click --}}
-                </li> {{-- esto es para que exitan 2 logins 1 para el administrador y otro para el user comun --}}
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Login
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <li><a class="dropdown-item" href="/login">Admin</a></li>
+                      <li><a class="dropdown-item" href="/login-usersop">User</a></li>
+                    </ul>
+                  </li>
                 </ul>
               </div>
             </div>

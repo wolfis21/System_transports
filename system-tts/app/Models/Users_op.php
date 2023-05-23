@@ -4,9 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Contracts\Auth\Authenticatable;
 
-class Users_op extends Model
+class Users_op extends Model implements Authenticatable
 {
+    use \Illuminate\Auth\Authenticatable;
     use HasFactory;
     static $rules = [
         'dni' => 'required',

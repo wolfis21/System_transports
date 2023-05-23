@@ -5,7 +5,7 @@
         <div class="text-center">
             <h2 class="fw-bold fs-1">Ruta de Buses</h2>
             {{-- una mierda de imagen cambiar --}}
-            <img src="{{ asset('img/img3.png') }}" class="img-full">
+            <img src="{{ asset('img/img3.png') }}" class="img-home-bus">
         </div>
 
         <hr class="container mt-5">

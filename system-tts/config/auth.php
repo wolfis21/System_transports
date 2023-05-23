@@ -40,6 +40,16 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'api' => [
+            'driver' => 'token',
+            'provider' => 'users',
+            'hash' => false,
+        ],
+    
+        'users_op' => [
+            'driver' => 'session',
+            'provider' => 'users_ops',
+        ],
     ],
 
     /*
@@ -69,6 +79,11 @@ return [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+
+        'users_ops' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Users_op::class,
+        ],
     ],
 
     /*
@@ -108,4 +123,15 @@ return [
 
     'password_timeout' => 10800,
 
+    /* guardia de seguridad */
+
+    'userop' => [
+        'driver' => 'session',
+        'provider' => 'usersops',
+    ],
+    
+    'userops' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\Users_op::class,
+    ],
 ];

@@ -7776,3 +7776,9 @@ h6 {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+/* custom */
+
+#app .card{
+  margin: 120px !important;
+}
