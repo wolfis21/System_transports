@@ -34,6 +34,7 @@
 }
 .justificar-texto{
 text-align: justify;
+font-size: 18px;
 }
 @media (min-width: 1180px) {
 .scroll-container {
@@ -210,5 +211,8 @@ transform:scale(1.10);
 }
 
 .img-home-bus, .img-home-pisteros{
-  width: 60%;
+  width: 30%;
+}
+.img-home-bus, .img-home-pisteros-ccs{
+  width: 20%;
 }

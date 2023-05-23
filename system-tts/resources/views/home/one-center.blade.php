@@ -3,7 +3,7 @@
 @section('content')
 <div class="regular-progression">
     <div class="container text-center">
-        <div class="row responsivo pt-5">
+        <div class="row responsivo pt-5" style="padding: 170px;">
           <div class="col">
             <h2 class=" mt-5 fw-semibold ">Centro del Camino "pensar en pone id"</h2>
             

@@ -13,7 +13,7 @@
             <h3 class=" mt-4 mb-5">Costo: {{$camino->cost}}</h3>
           </div>
           <div class="col-6">
-            <img src="{{ asset('img/img5.png') }}">
+            <img src="{{ asset('img/mapa.png') }}">
           </div>
         </div>
                         {{-- esto aca esta iterandose no asi --}}
@@ -21,7 +21,7 @@
         <div class="row ">
             @foreach ($camino->center as $center)
             <div class="zoom-contenedor col-12 col-md-6 col-xl-2 m-5 p-4 card borde-carta">
-                <img src="{{ asset('img/img1.png') }}" class="card-img-top borde-imagen-carta" alt="...">
+                <img src="{{ asset('img/ubicacion-pisteros.png') }}" class="card-img-top borde-imagen-carta" alt="...">
                 <div class="card-body">
                     <span class="card-text">Centro</span>
                     <h5 class="card-title">{{ $center->name_ref }}</h5>

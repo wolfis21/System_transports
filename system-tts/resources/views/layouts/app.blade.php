@@ -22,7 +22,7 @@
           <nav class="navbar navbar-expand-lg navbar-light bg-white">
             <div class="container-fluid">
               <a class="navbar-brand" href="/">
-                <img src="logo.png" alt="logo" class="logo">
+                <img src="{{ asset('img/autobus.png') }}" alt="logo" class="logo" style="">
                 Transportes Terrestres
               </a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">

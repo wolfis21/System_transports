@@ -5,7 +5,7 @@
         <div class="text-center">
             <h2 class="fw-bold fs-1">Centros de Pisteros</h2>
             {{-- una mierda de imagen cambiar --}}
-            <img src="{{ asset('img/img3.png') }}" class="img-home-pisteros">
+            <img src="{{ asset('img/seguro-de-auto.png') }}" class="img-home-pisteros-ccs">
         </div>
 
         <hr class="container mt-5">
@@ -26,7 +26,7 @@
                 <div class="row ">
                     @foreach ($camino_cp as $camino)
                     <div class="zoom-contenedor col-12 col-md-6 col-xl-2 m-5 p-4 card borde-carta">
-                        <img src="{{ asset('img/img1.png') }}" class="card-img-top borde-imagen-carta" alt="...">
+                        <img src="{{ asset('img/taxi-home-4.png') }}" class="card-img-top borde-imagen-carta" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Camino {{$camino->id}}</h5>
                             <p class="card-text">{{$camino->name}}</p>
